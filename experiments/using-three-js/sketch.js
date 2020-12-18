@@ -10,7 +10,7 @@ let rules = {
 };
 let bigRule;
 
-let length = 1;
+let length = 1.1;
 let angle = 90;
 
 bigRule = resolveRules(premise, rules, 2);
