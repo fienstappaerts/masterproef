@@ -21,8 +21,8 @@ function setup() {
 }
 
 function draw() {
-  background(255, 90, 255);
-  stroke('white');
+  background('white');
+  stroke('black');
   strokeWeight(2);
   translate(width / 2, height / 2);
   rotate(-90);

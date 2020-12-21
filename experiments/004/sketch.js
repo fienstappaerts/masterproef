@@ -1,27 +1,27 @@
 //let bigRule = 'F[+FF]-F';
 
 let premise = 'F';
-let rules = {
-  B: 'F[+FFA][-FA]',
-  A: 'F[+FFB][-FB]',
-  F: '[+FFF][-F+>FFF<F-][++F>-F]',
-}
+  let rules = {
+    F: 'F[+FFF,FFF][-FFF.ffF]FffF[-Ff,FFF-F]',
+  }
 let bigRule;
 
 
 let length = 100;
-let angle = 45;
+let angle = 90;
 
 function setup() {
   createCanvas(600, 600);
   angleMode(DEGREES);
   bigRule = resolveRules(premise, rules, 3);
   print(bigRule);
+  
 }
 
 function draw() {
   background('white');
   stroke('black');
+  strokeWeight(5);
   translate(width / 2, height / 2);
   rotate(-90);
   scale(0.3);
@@ -52,6 +52,8 @@ function drawShape(rule)  {
     if (c === 'F') {
       line(0, 0, length, 0);
       translate(length, 0);
+    } else if (c === 'f') {
+      translate(0, -length, 0);
     } else if (c === '+') {
       rotate(angle);
     } else if (c === '-') {
@@ -64,6 +66,7 @@ function drawShape(rule)  {
       scale(1.2);
     } else if (c === '<') {
       scale(0.8);
+   
     }
   }
 }
