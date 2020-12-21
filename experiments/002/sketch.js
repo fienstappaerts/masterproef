@@ -10,17 +10,20 @@ let bigRule;
 
 
 let length = 100;
-let angle = 45;
+let angle = 90;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 600);
   angleMode(DEGREES);
   bigRule = resolveRules(premise, rules, 3);
   print(bigRule);
+  
 }
 
 function draw() {
-  background(220);
+  background(255, 90, 255);
+  stroke('white');
+  strokeWeight(2);
   translate(width / 2, height / 2);
   rotate(-90);
   scale(0.3);
