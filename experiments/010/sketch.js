@@ -1,19 +1,22 @@
+//added D which is length*4;
 
-let premise = 'F';
+let premise = '[A+A-A]--[A+A-A]';
   let rules = {
-    F: '+FF+FF+FF+FF',
+    //F: 'Af[A]',
+    A: 'FfD+FfD-FfD',
+
 
   }
 let bigRule;
 
 
-let length = 30;
+let length = 50;
 let angle = 90;
 
 function setup() {
   createCanvas(600, 600);
   angleMode(DEGREES);
-  bigRule = resolveRules(premise, rules, );
+  bigRule = resolveRules(premise, rules, 4);
   print(bigRule);
   
 }
@@ -21,7 +24,7 @@ function setup() {
 function draw() {
   background('white');
   stroke('black');
-  strokeWeight(5);
+  strokeWeight(4);
   translate(width / 2, height / 2);
   rotate(-90);
   scale(0.3);
@@ -52,8 +55,11 @@ function drawShape(rule)  {
     if (c === 'F') {
       line(0, 0, length, 0);
       translate(length, 0);
+    } if (c === 'D') {
+      line(0, 0, length * 4, 0);
+      translate(length, 0);
     } else if (c === 'f') {
-      translate(0, -length, 0);
+      translate(0, length, 0);
     } else if (c === '+') {
       rotate(angle);
     } else if (c === '-') {

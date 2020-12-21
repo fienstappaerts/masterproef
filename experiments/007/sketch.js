@@ -1,19 +1,20 @@
 
-let premise = 'F';
+let premise = 'A >f[A]';
   let rules = {
-    F: '+FF+FF+FF+FF',
+    //F: 'A >f[A]',
+    A: '+F+FfA+FF+FF',
 
   }
 let bigRule;
 
 
-let length = 30;
+let length = 200;
 let angle = 90;
 
 function setup() {
   createCanvas(600, 600);
   angleMode(DEGREES);
-  bigRule = resolveRules(premise, rules, );
+  bigRule = resolveRules(premise, rules, 2);
   print(bigRule);
   
 }
