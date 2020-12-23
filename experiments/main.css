@@ -1,24 +1,59 @@
 body {
-  background-color: white;
-  font-family: "Assistant", sans-serif;
-  color: blue;
+  background-color: blue;
+  font-family: "Jura", sans-serif;
+  color: white;
   font-size: 18px;
 }
-h1 {
+.header {
   font-size: 20px;
-  padding-left: 20px;
+  padding-left: 2px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
-
-ul {
-  list-style: none;
-  padding-left: 20px;
-}
-
 a {
+  position: relative;
+  text-align: center;
   color: blue;
   text-decoration: none;
 }
 
 a:hover {
   color: black;
+}
+.links {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 4px;
+}
+
+.experiment_link {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.experiment__image {
+  height: 260px;
+  object-fit: contain;
+}
+
+.experiment_number_overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 130px;
+  margin: 0;
+  background: white;
+  color: #f1f1f1;
+  transition: 0.5s ease;
+  opacity: 0;
+  color: blue;
+  text-align: center;
+}
+
+a:hover .experiment_number_overlay {
+  opacity: 1;
 }
