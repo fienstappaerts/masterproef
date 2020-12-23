@@ -1,5 +1,5 @@
 body {
-  background-color: blue;
+  background-color: rgb(0, 0, 255);
   font-family: "Jura", sans-serif;
   color: white;
   font-size: 18px;
@@ -10,18 +10,22 @@ body {
   margin-bottom: 20px;
   margin-top: 20px;
 }
-a {
+
+.header_name {
+  text-align: right;
   position: relative;
-  text-align: center;
-  color: blue;
-  text-decoration: none;
 }
 
-a:hover {
-  color: black;
+.header_title {
+  position: absolute;
+  text-align: left;
 }
+
+a {
+  position: relative;
+}
+
 .links {
-  margin: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 4px;
@@ -30,26 +34,23 @@ a:hover {
 .experiment_link {
   padding: 25px;
   display: flex;
-  flex-direction: column;
   background: white;
 }
 
 .experiment__image {
   height: 260px;
-  object-fit: contain;
 }
 
 .experiment_number_overlay {
   position: absolute;
+  padding: 130px;
+  margin: 0;
+  transition: 0.5s ease;
+  opacity: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 130px;
-  margin: 0;
   background: white;
-  color: #f1f1f1;
-  transition: 0.5s ease;
-  opacity: 0;
   color: blue;
   text-align: center;
 }
