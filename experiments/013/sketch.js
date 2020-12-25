@@ -1,13 +1,11 @@
-//same F as 004 but with a smaller length;
-
 let premise = 'F';
   let rules = {
-    F: 'F[+FFFFFF][-FFFffF]FffF[-FfFFF-F]',
+    F: 'D-Ffffff+[DFfffF]',
   }
 let bigRule;
 
 
-let length = 25;
+let length = 60;
 let angle = 90;
 
 function setup() {
@@ -21,7 +19,7 @@ function setup() {
 function draw() {
   background('white');
   stroke('black');
-  strokeWeight(5);
+  strokeWeight(4);
   translate(width / 2, height / 2);
   rotate(-90);
   scale(0.3);
@@ -52,8 +50,11 @@ function drawShape(rule)  {
     if (c === 'F') {
       line(0, 0, length, 0);
       translate(length, 0);
+    } else if (c === 'D') {
+      line(0, 0, length * 4, 0);
+      translate(length, 0);
     } else if (c === 'f') {
-      translate(0, -length, 0);
+      translate(0, length, 0);
     } else if (c === '+') {
       rotate(angle);
     } else if (c === '-') {
