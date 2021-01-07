@@ -15,11 +15,6 @@ body {
 .header_name {
   text-align: right;
   position: relative;
-  text-decoration: none;
-  color: white;
-}
-.header_name :hover {
-  text-decoration: underline;
 }
 
 .header_title {
@@ -33,7 +28,7 @@ a {
 
 .links {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 4px;
 }
 
@@ -44,19 +39,17 @@ a {
 }
 
 .experiment__image {
-  height: 260px;
+  height: 400px;
 }
 
 .experiment_number_overlay {
   position: absolute;
-  padding: 130px;
   margin: 0;
   transition: 0.5s ease;
   opacity: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
   color: blue;
   text-align: center;
 }
