@@ -1,0 +1,61 @@
+body {
+  font-family: "Jura", sans-serif;
+  color: white;
+  font-size: 18px;
+  background-color: blue;
+}
+
+.header {
+  font-size: 20px;
+  padding-left: 2px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.header_name {
+  text-align: right;
+  position: relative;
+}
+
+.header_title {
+  position: absolute;
+  text-align: left;
+}
+
+a {
+  position: relative;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 4px;
+}
+
+.experiment_link {
+  padding: 25px;
+  display: flex;
+  background: white;
+}
+
+.experiment__image {
+  height: 260px;
+}
+
+.experiment_number_overlay {
+  position: absolute;
+  padding: 130px;
+  margin: 0;
+  transition: 0.5s ease;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: blue;
+  text-align: center;
+}
+
+a:hover .experiment_number_overlay {
+  opacity: 1;
+}
