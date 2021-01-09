@@ -4,7 +4,7 @@ function toRadians(deg) {
   
   let premise = "F";
   let rules = {
-    F: '[+FfFF][-F+>FFF<F-][++F>-F]',
+    F: '[+Ff:FF][-F+:>FFF<F-][+;+F>-F]',
   };
   let bigRule;
   
@@ -23,21 +23,35 @@ function toRadians(deg) {
   
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setClearColor(new THREE.Color("blue"));
   document.body.appendChild(renderer.domElement);
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   
-  const light1 = new THREE.AmbientLight(0x404040); // soft white light
-  scene.add(light1);
   
+  const light1 = new THREE.AmbientLight(0xffffff, 0.2); // soft white light
+  scene.add(light1);
+
+  /*
   const light2 = new THREE.PointLight(0xffffff, 1, 100);
   light2.position.set(0, 2, 0);
   scene.add(light2);
+  */
+
+  const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+  scene.add( directionalLight.target );
+  directionalLight.position.set(15, 0, 15) //= new THREE.Vector3(0, 15, 15);
+  //directionalLight.target.direction = new THREE.Vector3(0, 15, 15);
+  scene.add( directionalLight );
+
+  const helper = new THREE.DirectionalLightHelper( directionalLight, 5 );
+  scene.add( helper );
   
   const shapeGroup = new THREE.Group();
   scene.add(shapeGroup);
   
   const boxGeometry = new THREE.BoxGeometry();
-  const boxMaterial = new THREE.MeshPhongMaterial({ color: 'blue' });
+  const boxMaterial = new THREE.MeshPhongMaterial({ color: "white" });
   
   buildShape(bigRule);
   // const material = new THREE.LineBasicMaterial({
@@ -94,10 +108,10 @@ function toRadians(deg) {
         shapeGroup.add(box);
         // box(length);
         // translate(0, -length, 0);
-        tmpMatrix.makeTranslation(length*2, -length*2, length*2);
+        tmpMatrix.makeTranslation(0, -length*2, 0);
         matrix.multiply(tmpMatrix);
       } else if (c === "f") {
-        tmpMatrix.makeTranslation(length, -length, length);
+        tmpMatrix.makeTranslation(0, -length+2, 0);
         matrix.multiply(tmpMatrix);
         // translate(0, -length, 0);
       } else if (c === "+") {
@@ -107,6 +121,14 @@ function toRadians(deg) {
       } else if (c === "-") {
         // matrix.rotate(-angle);
         tmpMatrix.makeRotationZ(toRadians(-angle));
+        matrix.multiply(tmpMatrix);
+      } else if (c === ":") {
+        // rotate(angle);
+        tmpMatrix.makeRotationX(toRadians(angle));
+        matrix.multiply(tmpMatrix);
+      } else if (c === ";") {
+        // matrix.rotate(-angle);
+        tmpMatrix.makeRotationX(toRadians(-angle));
         matrix.multiply(tmpMatrix);
       } else if (c === "[") {
         matrixStack.push(matrix.clone());
