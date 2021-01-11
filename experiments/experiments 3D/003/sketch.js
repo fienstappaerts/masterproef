@@ -4,7 +4,7 @@ function toRadians(deg) {
   
   let premise = "F";
   let rules = {
-    F: '[+Ff:FF][-F+:>FFF<F-][+;+F>-F]',
+    F: '+Ff:Ff+Ff',
   };
   let bigRule;
   
@@ -50,7 +50,7 @@ function toRadians(deg) {
   const shapeGroup = new THREE.Group();
   scene.add(shapeGroup);
   
-  const boxGeometry = new THREE.BoxGeometry();
+  const boxGeometry = new THREE.BoxGeometry(0.5, 10, 0.5);
   const boxMaterial = new THREE.MeshPhongMaterial({ color: "white" });
   
   buildShape(bigRule);
@@ -70,7 +70,7 @@ function toRadians(deg) {
   // cube.matrix.multiply(translateMatrix);
   // scene.add(cube);
   
-  camera.position.z = 15;
+  camera.position.z = 20;
   
   function animate() {
     requestAnimationFrame(animate);
@@ -108,10 +108,10 @@ function toRadians(deg) {
         shapeGroup.add(box);
         // box(length);
         // translate(0, -length, 0);
-        tmpMatrix.makeTranslation(0, -length*2, 0);
+        tmpMatrix.makeTranslation(0, -length, 0);
         matrix.multiply(tmpMatrix);
       } else if (c === "f") {
-        tmpMatrix.makeTranslation(0, -length+2, 0);
+        tmpMatrix.makeTranslation(0, -length*2, 0);
         matrix.multiply(tmpMatrix);
         // translate(0, -length, 0);
       } else if (c === "+") {
@@ -129,6 +129,14 @@ function toRadians(deg) {
       } else if (c === ";") {
         // matrix.rotate(-angle);
         tmpMatrix.makeRotationX(toRadians(-angle));
+        matrix.multiply(tmpMatrix);
+      } else if (c === "$") {
+        // rotate(angle);
+        tmpMatrix.makeRotationY(toRadians(angle));
+        matrix.multiply(tmpMatrix);
+      } else if (c === "^") {
+        // matrix.rotate(-angle);
+        tmpMatrix.makeRotationY(toRadians(-angle));
         matrix.multiply(tmpMatrix);
       } else if (c === "[") {
         matrixStack.push(matrix.clone());

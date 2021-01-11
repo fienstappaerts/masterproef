@@ -4,11 +4,11 @@ function toRadians(deg) {
   
   let premise = "F";
   let rules = {
-    F: '[+Ff:FF][-F+:>FFF<F-][+;+F>-F]',
+    F: '[FF^FF]+FFFfF;FFfFF',
   };
   let bigRule;
   
-  let length = 1.1;
+  let length = 1.5;
   let angle = 90;
   
   bigRule = resolveRules(premise, rules, 2);
@@ -70,7 +70,7 @@ function toRadians(deg) {
   // cube.matrix.multiply(translateMatrix);
   // scene.add(cube);
   
-  camera.position.z = 15;
+  camera.position.z = 30;
   
   function animate() {
     requestAnimationFrame(animate);
@@ -108,10 +108,10 @@ function toRadians(deg) {
         shapeGroup.add(box);
         // box(length);
         // translate(0, -length, 0);
-        tmpMatrix.makeTranslation(0, -length*2, 0);
+        tmpMatrix.makeTranslation(0, -length, 0);
         matrix.multiply(tmpMatrix);
       } else if (c === "f") {
-        tmpMatrix.makeTranslation(0, -length+2, 0);
+        tmpMatrix.makeTranslation(0, -length, 0);
         matrix.multiply(tmpMatrix);
         // translate(0, -length, 0);
       } else if (c === "+") {
@@ -129,6 +129,14 @@ function toRadians(deg) {
       } else if (c === ";") {
         // matrix.rotate(-angle);
         tmpMatrix.makeRotationX(toRadians(-angle));
+        matrix.multiply(tmpMatrix);
+      } else if (c === "$") {
+        // rotate(angle);
+        tmpMatrix.makeRotationY(toRadians(angle));
+        matrix.multiply(tmpMatrix);
+      } else if (c === "^") {
+        // matrix.rotate(-angle);
+        tmpMatrix.makeRotationY(toRadians(-angle));
         matrix.multiply(tmpMatrix);
       } else if (c === "[") {
         matrixStack.push(matrix.clone());
