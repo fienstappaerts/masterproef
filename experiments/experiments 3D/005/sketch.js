@@ -14,6 +14,7 @@ function toRadians(deg) {
   bigRule = resolveRules(premise, rules, 3);
   
   const scene = new THREE.Scene();
+  scene.background = new THREE.Color("black")
   const camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
@@ -24,7 +25,7 @@ function toRadians(deg) {
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setClearColor(new THREE.Color("black"));
+  //renderer.setClearColor(new THREE.Color("black"));
   document.body.appendChild(renderer.domElement);
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   
@@ -80,7 +81,8 @@ function toRadians(deg) {
   
   function animate() {
     requestAnimationFrame(animate);
-    renderer.render(scene, camera);
+    composer.render();
+    //renderer.render(scene, camera);
   }
   animate();
   
