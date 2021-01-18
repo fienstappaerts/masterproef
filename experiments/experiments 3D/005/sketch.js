@@ -2,7 +2,7 @@ function toRadians(deg) {
     return deg * (Math.PI / 180);
   }
   
-  let premise = "F";
+  let premise = ":FFFFFF:A";
   let rules = {
     F: 'FFff:f+F$F',
   };
@@ -51,7 +51,7 @@ function toRadians(deg) {
   const shapeGroup = new THREE.Group();
   scene.add(shapeGroup);
   
-  const boxGeometry = new THREE.BoxGeometry(2, 2, 2);
+  const boxGeometry = new THREE.BoxGeometry(3, 3, 3);
   const boxMaterial = new THREE.MeshPhongMaterial({ color: "white" });
   
   buildShape(bigRule);
@@ -77,7 +77,9 @@ function toRadians(deg) {
 				ssaoPass.kernelRadius = 16;
 				composer.addPass( ssaoPass );
 
-  camera.position.z = 60;
+  camera.position.z = 0;
+  camera.position.y = 4.78;
+
   
   function animate() {
     requestAnimationFrame(animate);
