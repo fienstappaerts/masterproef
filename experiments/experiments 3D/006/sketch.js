@@ -1,14 +1,22 @@
 
-//added controls
+//added controls and a floor
+let KEY_DOWN_PRESSED = false;
+let KEY_UP_PRESSED = false;
+let KEY_LEFT_PRESSED = false;
+let KEY_RIGHT_PRESSED = false;
+
+let playerSpeed = 1.0;
 
 function toRadians(deg) {
     return deg * (Math.PI / 180);
   }
   
-  let premise = ":FFFFFF:A";
+  let premise = ":G:ffff[AB]^[AB]";
   let rules = {
     //F: 'FFff:f+F$F',
-    A: 'FF'
+    A: ':FBBF',
+    B: 'AAFF',
+    G: 'FFFFFFFFFFFFFFFFFFFFFFFFFF',
 
   };
   let bigRule;
@@ -16,7 +24,7 @@ function toRadians(deg) {
   let length = 3;
   let angle = 90;
   
-  bigRule = resolveRules(premise, rules, 3);
+  bigRule = resolveRules(premise, rules, 4);
   
   const scene = new THREE.Scene();
   scene.background = new THREE.Color("black")
@@ -60,6 +68,18 @@ function toRadians(deg) {
   const boxMaterial = new THREE.MeshPhongMaterial({ color: "white" });
   
   buildShape(bigRule);
+
+  const geometry = new THREE.PlaneGeometry(1000, 1000);
+  geometry.rotateX( - Math.PI / 2 );
+  const material = new THREE.MeshBasicMaterial( {color: 'lightgrey'} );
+  const plane = new THREE.Mesh( geometry, material );
+  plane.position.y = -1,5;
+  scene.add( plane );  
+
+
+
+
+
   // const material = new THREE.LineBasicMaterial({
   //   color: 0xffffff,
   //   linewidth: 1,
@@ -82,16 +102,23 @@ function toRadians(deg) {
 				ssaoPass.kernelRadius = 16;
 				composer.addPass( ssaoPass );
 
-  camera.position.z = 0;
   camera.position.y = 4.78;
+  camera.position.z = 0;
 
-  
-  function animate() {
+  function animate(dt) {
+    console.log('test');
+
     requestAnimationFrame(animate);
     composer.render();
-    //renderer.render(scene, camera);
+    if (KEY_DOWN_PRESSED) {
+      camera.z -= playerSpeed * dt;
+    } else if (KEY_UP_PRESSED) {
+      camera.z += playerSpeed * dt;
+    }
   }
   animate();
+
+
   
   function resolveRules(startRule, rules, depth) {
     let endRule = "";
@@ -168,3 +195,19 @@ function toRadians(deg) {
       }
     }
   }
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowUp") {
+      KEY_UP_PRESSED = true;
+    } else if (e.key === "ArrowDown") {
+      KEY_DOWN_PRESSED = true;
+    }
+  })
+  
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "ArrowUp") {
+      KEY_UP_PRESSED = false;
+    } else if (e.key === "ArrowDown") {
+      KEY_DOWN_PRESSED = false;
+    }
+  })
