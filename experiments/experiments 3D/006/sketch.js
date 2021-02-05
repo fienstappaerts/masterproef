@@ -4,6 +4,9 @@ let KEY_UP_PRESSED = false;
 let KEY_LEFT_PRESSED = false;
 let KEY_RIGHT_PRESSED = false;
 
+let MOUSE_X = 0;
+let MOUSE_Y = 0;
+
 let playerSpeed = 10.0;
 
 function toRadians(deg) {
@@ -38,7 +41,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 //renderer.setClearColor(new THREE.Color("black"));
 document.body.appendChild(renderer.domElement);
-const controls = new THREE.OrbitControls(camera, renderer.domElement);
+// const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 const light1 = new THREE.AmbientLight(0xffffff, 0.4); // soft white light
 scene.add(light1);
@@ -106,15 +109,19 @@ camera.position.z = 0;
 let lastTime = Date.now();
 function animate() {
   const dt = (Date.now() - lastTime) / 1000;
-  console.log(dt);
+  // console.log(dt);
   requestAnimationFrame(animate);
   composer.render();
   if (KEY_DOWN_PRESSED) {
-    camera.position.z -= playerSpeed * dt;
-  } else if (KEY_UP_PRESSED) {
     camera.position.z += playerSpeed * dt;
+  } else if (KEY_UP_PRESSED) {
+    camera.position.z -= playerSpeed * dt;
   }
   lastTime = Date.now();
+  // camera.rotation = new Euler
+  camera.rotation.y = (-MOUSE_X * Math.PI) / 2;
+  camera.rotation.x = (MOUSE_Y * Math.PI) / 2;
+  camera.rotation.order = "YXZ";
 }
 animate();
 
@@ -195,17 +202,23 @@ function buildShape(rule) {
 }
 
 window.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowUp") {
+  if (e.key === "ArrowUp" || e.key === "w") {
     KEY_UP_PRESSED = true;
-  } else if (e.key === "ArrowDown") {
+  } else if (e.key === "ArrowDown" || e.key === "s") {
     KEY_DOWN_PRESSED = true;
   }
 });
 
 window.addEventListener("keyup", (e) => {
-  if (e.key === "ArrowUp") {
+  if (e.key === "ArrowUp" || e.key === "w") {
     KEY_UP_PRESSED = false;
-  } else if (e.key === "ArrowDown") {
+  } else if (e.key === "ArrowDown" || e.key === "s") {
     KEY_DOWN_PRESSED = false;
   }
+});
+
+window.addEventListener("mousemove", (e) => {
+  MOUSE_X = e.clientX / window.innerWidth - 0.5;
+  MOUSE_Y = e.clientY / window.innerHeight - 0.5;
+  // console.log(MOUSE_X, MOUSE_Y);
 });
