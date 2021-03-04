@@ -34,6 +34,7 @@ a {
 .links {
   display: grid;
   grid-template-columns: repeat(4, auto);
+  height: auto;
   grid-gap: 4px;
 }
 
@@ -44,12 +45,12 @@ a {
 }
 
 .experiment_image {
-  height: 260px;
+  height: 300px;
 }
 
 .experiment_number_overlay {
   position: absolute;
-  padding: 130px;
+  padding: 150px;
   margin: 0;
   transition: 0.5s ease;
   opacity: 0;
