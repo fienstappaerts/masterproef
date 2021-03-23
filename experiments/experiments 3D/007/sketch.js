@@ -13,12 +13,12 @@ function toRadians(deg) {
   return deg * (Math.PI / 180);
 }
 
-let premise = ":G:ffff[AB]^[AB]";
+let premise = ":GF+FfAB<BB$fffBB[>B]";
 let rules = {
   //F: 'FFff:f+F$F',
   A: ":FBBF",
   B: "AAFF",
-  G: "FFFFFFFFFFFFFFFFFFFFFFFFFF",
+  G: "FFFFFFFFFFF",
 };
 let bigRule;
 
@@ -66,15 +66,16 @@ scene.add(shapeGroup);
 
 const boxGeometry = new THREE.BoxGeometry(3, 3, 3);
 const boxMaterial = new THREE.MeshPhongMaterial({ color: "white" });
+boxMaterial.wireframe = true;
 
 buildShape(bigRule);
 
-const geometry = new THREE.PlaneGeometry(1000, 1000);
-geometry.rotateX(-Math.PI / 2);
-const material = new THREE.MeshBasicMaterial({ color: "lightgrey" });
-const plane = new THREE.Mesh(geometry, material);
-(plane.position.y = -1), 5;
-scene.add(plane);
+// const geometry = new THREE.PlaneGeometry(1000, 1000);
+// geometry.rotateX(-Math.PI / 2);
+// const material = new THREE.MeshBasicMaterial({ color: "lightgrey" });
+// const plane = new THREE.Mesh(geometry, material);
+// (plane.position.y = -1), 5;
+// scene.add(plane);
 
 // const material = new THREE.LineBasicMaterial({
 //   color: 0xffffff,
@@ -103,7 +104,7 @@ const ssaoPass = new THREE.SSAOPass(
 ssaoPass.kernelRadius = 16;
 composer.addPass(ssaoPass);
 
-camera.position.y = 4.78;
+camera.position.y = 4;
 camera.position.z = 0;
 
 let lastTime = Date.now();
