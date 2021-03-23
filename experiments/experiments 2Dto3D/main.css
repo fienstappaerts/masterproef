@@ -30,3 +30,7 @@ body {
 a {
   position: relative;
 }
+
+video {
+  padding-bottom: 25px;
+}
