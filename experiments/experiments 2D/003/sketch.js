@@ -1,13 +1,12 @@
 //let bigRule = 'F[+FF]-F';
 
-let premise = 'BFA';
+let premise = "BFA";
 let rules = {
-  B: 'F[+FFA][-FA]',
-  A: 'F[+FFB][-FB]',
-  F: '+B[-F+>AAA<F-]++A>-sF',
-}
+  B: "F[+FFA][-FA]",
+  A: "F[+FFB][-FB]",
+  F: "+B[-F+>AAA<F-]++A>-sF",
+};
 let bigRule;
-
 
 let length = 100;
 let angle = 90;
@@ -17,24 +16,23 @@ function setup() {
   angleMode(DEGREES);
   bigRule = resolveRules(premise, rules, 3);
   print(bigRule);
-  
 }
 
 function draw() {
-  background('white');
-  stroke('black');
+  background("white");
+  stroke("black");
   strokeWeight(1);
   translate(width / 2, height / 2);
   rotate(-90);
   scale(0.3);
 
   drawShape(bigRule);
-   // angle += 1;
+  // angle += 1;
   // length += 0.1;
 }
 
 function resolveRules(startRule, rules, depth) {
-  let endRule = '';
+  let endRule = "";
   for (let currentLetter of startRule) {
     if (currentLetter in rules) {
       endRule += rules[currentLetter];
@@ -48,23 +46,22 @@ function resolveRules(startRule, rules, depth) {
   return endRule;
 }
 
-
-function drawShape(rule)  {
+function drawShape(rule) {
   for (let c of rule) {
-    if (c === 'F') {
+    if (c === "F") {
       line(0, 0, length, 0);
       translate(length, 0);
-    } else if (c === '+') {
+    } else if (c === "+") {
       rotate(angle);
-    } else if (c === '-') {
+    } else if (c === "-") {
       rotate(-angle);
-    } else if (c === '[') {
+    } else if (c === "[") {
       push();
-    } else if (c === ']') {
+    } else if (c === "]") {
       pop();
-    } else if (c === '>') {
+    } else if (c === ">") {
       scale(1.2);
-    } else if (c === '<') {
+    } else if (c === "<") {
       scale(0.8);
     }
   }
