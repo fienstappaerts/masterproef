@@ -26,9 +26,15 @@ a {
   position: relative;
 }
 
+.intro {
+  text-align: center;
+  color: blue;
+  margin: 120px;
+}
+
 .links {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(4, auto);
   grid-gap: 4px;
 }
 
@@ -46,7 +52,7 @@ a {
 
 .experiment_overlay {
   position: absolute;
-  padding: 130px;
+  padding: 40px;
   margin: 0;
   top: 50%;
   left: 50%;
@@ -58,4 +64,15 @@ a {
 
 a :hover {
   text-decoration: underline;
+}
+
+.footer {
+  background: white;
+  color: blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  padding-left: 2px;
+  padding-top: 40px;
 }

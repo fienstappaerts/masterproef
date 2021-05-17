@@ -4,7 +4,7 @@ let premise = "BFA";
 let rules = {
   B: "F[+FFA][-FA]",
   A: "F[+FFB][-FB]",
-  F: "+B[-F+>AAA<F-]++A>-sF",
+  F: "+B[-F+>AAA<F-]++A>-F",
 };
 let bigRule;
 
