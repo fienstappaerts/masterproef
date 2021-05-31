@@ -1,0 +1,45 @@
+body {
+  font-family: "Jura", sans-serif;
+  color: white;
+  font-size: 18px;
+  background-color: blue;
+}
+
+.header {
+  font-size: 20px;
+  padding-left: 2px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.header_name {
+  text-align: right;
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.header_name :hover {
+  text-decoration: underline;
+}
+
+.header_title {
+  position: absolute;
+  text-align: left;
+}
+
+.inspiration_everything {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  height: auto;
+  grid-gap: 4px;
+}
+
+.inspiration_image {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.inspiration_name {
+  font-size: 14px;
+}
