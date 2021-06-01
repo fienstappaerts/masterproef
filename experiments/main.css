@@ -85,11 +85,12 @@ a :hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 14px;
   padding-left: 2px;
   padding-top: 40px;
 }
 
-.footer_social {
-  text-decoration: none;
+.linkedin {
+  text-decoration: underline;
+  color: white;
 }
