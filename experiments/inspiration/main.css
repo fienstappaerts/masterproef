@@ -8,8 +8,13 @@ body {
 .header {
   font-size: 20px;
   padding-left: 2px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: blue;
 }
 
 .header_name {
@@ -17,6 +22,7 @@ body {
   position: relative;
   text-decoration: none;
   color: white;
+  right: 1%;
 }
 .header_name :hover {
   text-decoration: underline;
@@ -27,11 +33,53 @@ body {
   text-align: left;
 }
 
+#information {
+  position: fixed;
+  bottom: 2%;
+  left: 9px;
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+  color: blue;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  height: 30px;
+  width: 30px;
+}
+
+#information:hover + .information_hide {
+  display: block;
+  position: fixed;
+  bottom: 2%;
+  left: 9px;
+  margin-top: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+  color: blue;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  height: 91.2%;
+  width: 10vw;
+  padding-top: 4px;
+}
+
+.information_hide {
+  display: none;
+}
+
 .inspiration_everything {
   display: grid;
   grid-template-columns: repeat(5, auto);
   height: auto;
   grid-gap: 4px;
+}
+
+.inspiration_container {
+  margin-top: 60px;
+  padding-bottom: 15px;
 }
 
 .inspiration_image {
@@ -41,6 +89,7 @@ body {
 }
 
 .inspiration_name {
+  padding-top: 2px;
   font-size: 14px;
 }
 
@@ -52,10 +101,32 @@ body {
   align-items: center;
   font-size: 14px;
   padding-left: 2px;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .linkedin {
   text-decoration: underline;
   color: white;
+}
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 2%;
+  right: 9px;
+  margin-top: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+  color: blue;
+  cursor: pointer;
+  font-size: 14px;
+  height: 30px;
+  width: 30px;
+  padding-top: 4px;
+}
+
+#scrollToTopBtn:hover {
+  color: blue;
+  background-color: lightgrey;
+  box-shadow: 3px 3px 5px grey;
 }

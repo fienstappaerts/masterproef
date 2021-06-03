@@ -8,8 +8,14 @@ body {
 .header {
   font-size: 20px;
   padding-left: 2px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: blue;
+  z-index: 1;
 }
 
 .header_name {
@@ -17,6 +23,7 @@ body {
   position: relative;
   text-decoration: none;
   color: white;
+  right: 1%;
 }
 .header_name :hover {
   text-decoration: underline;
