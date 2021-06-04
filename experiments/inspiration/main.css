@@ -34,40 +34,49 @@ body {
 }
 
 #information {
+  font-family: "Jura", sans-serif;
   position: fixed;
   bottom: 2%;
-  left: 9px;
-  background-color: white;
+  right: 50px;
   border: none;
   border-radius: 2px;
   color: blue;
   background-color: white;
   cursor: pointer;
   font-size: 14px;
-  height: 30px;
-  width: 30px;
+  height: 3vh;
+  padding-bottom: 3px;
+}
+
+#information:hover {
+  color: blue;
+  background-color: lightgray;
 }
 
 #information:hover + .information_hide {
   display: block;
   position: fixed;
-  bottom: 2%;
-  left: 9px;
+  bottom: 5vh;
+  right: 50px;
   margin-top: 20px;
   background-color: white;
   border: none;
   border-radius: 2px;
   color: blue;
-  background-color: white;
   cursor: pointer;
   font-size: 14px;
-  height: 91.2%;
-  width: 10vw;
-  padding-top: 4px;
+  height: 70%;
+  width: 60%;
 }
 
 .information_hide {
+  background-color: white;
+  padding: 20px;
   display: none;
+}
+
+.information_hide_header {
+  font-size: 20px;
 }
 
 .inspiration_everything {
@@ -75,10 +84,11 @@ body {
   grid-template-columns: repeat(5, auto);
   height: auto;
   grid-gap: 4px;
+  margin-top: 50px;
 }
 
 .inspiration_container {
-  margin-top: 60px;
+  margin-top: 20px;
   padding-bottom: 15px;
 }
 
@@ -120,7 +130,7 @@ body {
   color: blue;
   cursor: pointer;
   font-size: 14px;
-  height: 30px;
+  height: 3vh;
   width: 30px;
   padding-top: 4px;
 }
@@ -128,5 +138,4 @@ body {
 #scrollToTopBtn:hover {
   color: blue;
   background-color: lightgrey;
-  box-shadow: 3px 3px 5px grey;
 }

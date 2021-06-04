@@ -8,13 +8,26 @@ body {
 .header {
   font-size: 20px;
   padding-left: 2px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: none;
+  z-index: 1;
 }
 
 .header_name {
+  padding-right: 7px;
   text-align: right;
   position: relative;
+  text-decoration: none;
+  color: blue;
+  right: 1%;
+}
+.header_name :hover {
+  text-decoration: underline;
 }
 
 .header_title {
@@ -34,6 +47,9 @@ a {
 }
 
 .intro_text {
+  padding: 50px;
+  background-color: white;
+  text-align: center;
   margin: 0;
   color: blue;
   position: absolute;
@@ -42,9 +58,13 @@ a {
   transform: translate(-50%, -50%);
 }
 
-/* .intro_image {
+.intro_image {
+  position: relative;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
-} */
+}
 
 .links {
   padding-top: 30px;
