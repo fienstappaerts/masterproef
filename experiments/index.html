@@ -22,18 +22,31 @@
       <div class="header_name">Fien Stappaerts</div>
     </div>
 
-    <div class="intro">
-      <!-- <img src="img/background_6.jpg" alt="" class="intro_image" /> -->
+    <div class="app">
+      <div class="viewer">
+        <canvas class="webgl"></canvas>
+      </div>
+    </div>
+
+    <!-- <div class="intro">
+      <img src="img/background_6.jpg" alt="" class="intro_image" />
       <p class="intro_text">
         Welcome to the masterpage of my project called ArchiVox. Below you can
         find inspiration, images of research, sketches and compositions from an
         abstract 2D and 3D.
       </p>
-      <!-- <img class="intro_image" src="img/background_2.jpg" alt=""> -->
-    </div>
+      <img class="intro_image" src="img/background_2.jpg" alt="">
+    </div> -->
+
     <div class="links">
+      <a href="https://fienextrusion.netlify.app/" class="experiment_link">
+        <p class="experiment_overlay">System</p>
+      </a>
       <a href="inspiration/index.html" class="experiment_link">
         <p class="experiment_overlay">Inspiration</p>
+      </a>
+      <a href="sketches/index.html" class="experiment_link">
+        <p class="experiment_overlay">Sketches</p>
       </a>
       <a href="experiments 2D/index.html" class="experiment_link">
         <p class="experiment_overlay">2D</p>
@@ -43,12 +56,6 @@
       </a>
       <a href="experiments 3D/index.html" class="experiment_link">
         <p class="experiment_overlay">3D</p>
-      </a>
-      <a href="sketches/index.html" class="experiment_link">
-        <p class="experiment_overlay">Sketches</p>
-      </a>
-      <a href="https://fienextrusion.netlify.app/" class="experiment_link">
-        <p class="experiment_overlay">System</p>
       </a>
     </div>
 
@@ -62,5 +69,11 @@
         ></a>
       </div>
     </div>
+
+    <script src="./third_party/three.min.js"></script>
+    <script src="./third_party/OrbitControls.js"></script>
+    <script src="./third_party/Projector.js"></script>
+    <script src="./third_party/SVGRenderer.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>

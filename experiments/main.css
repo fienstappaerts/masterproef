@@ -14,17 +14,16 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: none;
+  background: white;
   z-index: 1;
 }
 
 .header_name {
-  padding-right: 7px;
   text-align: right;
   position: relative;
   text-decoration: none;
   color: blue;
-  right: 1%;
+  right: 1.3%;
 }
 .header_name :hover {
   text-decoration: underline;
@@ -113,4 +112,16 @@ a :hover {
 .linkedin {
   text-decoration: underline;
   color: white;
+}
+
+.app {
+  height: 94vh;
+  width: 98vw;
+  overflow: hidden;
+}
+
+.viewer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
