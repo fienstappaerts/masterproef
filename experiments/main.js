@@ -403,17 +403,17 @@ lettera
 translate 0 -5 8
 
 fn letterr
-  box 3 10 1
-  translate 0 5 5
-  box 3 5 1
-  translate 0 5 -5
-  box 3 1 5
-  translate 0 -5 0
-  box 3 1 6
-  translate 0 -1 4
-  box 3 1 1
+  box 2 10 1
+  translate 0 6 5
+  box 2 4 1
+  translate 0 4 -5
+  box 2 1 5
+  translate 0 -5 1
+  box 2 1 4
+  translate 0 -1 3
+  box 2 1 1
   translate 0 -4 1
-  box 3 4 1
+  box 2 4 1
 letterr
 
 translate 0 1 3
@@ -433,14 +433,19 @@ letterc
 translate 0 -9 3
 
 fn letterh
-  box 3 11 1
-  translate 0 5 1
-  box 3 1 4
+  box 2 5 1
+  translate 0 6 0
+  box 2 5 1
+  translate 0 -1 1
+  box 2 1 4
   translate 0 -5 4
-  box 3 11 1
+  box 2 5 1
+  translate 0 6 0
+  box 2 5 1
+
 letterh
 
-translate 0 0 3
+translate 0 -6 3
 
 fn letteri
   box 3 11 1
@@ -612,6 +617,9 @@ scene.add(orthoCamera);
 let currentCamera = perspCamera;
 
 const perspControls = new THREE.OrbitControls(perspCamera, canvas);
+
+//perspControls.enableZoom = false;
+
 const orthoControls = new THREE.OrbitControls(orthoCamera, canvas);
 
 const renderer = new THREE.WebGLRenderer({
@@ -1015,3 +1023,15 @@ function onInput() {
   instructions = code.value;
   buildGeometry();
 }
+
+var scrollToTopBtn = document.getElementById("scrollToBottomBtn");
+var rootElement = document.documentElement;
+
+function scrollToBottom() {
+  window.scrollBy({
+    top: 910,
+    left: 0,
+    behavior: "smooth",
+  });
+}
+scrollToTopBtn.addEventListener("click", scrollToBottom);

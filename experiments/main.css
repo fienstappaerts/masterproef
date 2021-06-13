@@ -65,6 +65,29 @@ a {
   width: 100%;
 }
 
+#scrollToBottomBtn {
+  position: absolute;
+  bottom: 20%;
+  right: 49.3%;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 3px 3px 10px #888888;
+  border: none;
+  border-radius: 2px;
+  color: blue;
+  cursor: pointer;
+  font-size: 14px;
+  height: 3vh;
+  width: 30px;
+  padding-top: 4px;
+  scroll-behavior: smooth;
+}
+
+#scrollToBottomBtn:hover {
+  color: blue;
+  background-color: lightgrey;
+}
+
 .links {
   padding-top: 30px;
   display: grid;
