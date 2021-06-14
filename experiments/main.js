@@ -1024,14 +1024,38 @@ function onInput() {
   buildGeometry();
 }
 
-var scrollToTopBtn = document.getElementById("scrollToBottomBtn");
+var scrollToTopBtn = document.getElementById("scrollToBottomBtnFirst");
 var rootElement = document.documentElement;
 
 function scrollToBottom() {
   window.scrollBy({
-    top: 910,
+    top: 650,
     left: 0,
     behavior: "smooth",
   });
 }
 scrollToTopBtn.addEventListener("click", scrollToBottom);
+
+var scrollToTopBtn = document.getElementById("scrollToBottomBtnSecond");
+var rootElement = document.documentElement;
+
+function scrollToBottom() {
+  window.scrollBy({
+    top: 650,
+    left: 0,
+    behavior: "smooth",
+  });
+}
+scrollToTopBtn.addEventListener("click", scrollToBottom);
+
+var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+var rootElement = document.documentElement;
+
+function scrollToTop() {
+  // Scroll to top logic
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+scrollToTopBtn.addEventListener("click", scrollToTop);
