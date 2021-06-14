@@ -1,0 +1,143 @@
+body {
+  font-family: "Jura", sans-serif;
+  color: white;
+  font-size: 18px;
+  background-color: blue;
+}
+
+.header {
+  font-size: 20px;
+  padding-left: 2px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: blue;
+  z-index: 1;
+}
+
+.header_name {
+  text-align: right;
+  position: relative;
+  text-decoration: none;
+  color: white;
+  right: 9px;
+}
+.header_name :hover {
+  text-decoration: underline;
+}
+
+.header_title {
+  position: absolute;
+  text-align: left;
+}
+
+#information {
+  font-family: "Jura", sans-serif;
+  position: fixed;
+  bottom: 2%;
+  right: 50px;
+  border: none;
+  border-radius: 2px;
+  color: blue;
+  box-shadow: 3px 3px 10px #888888;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  height: 3vh;
+  padding-bottom: 3px;
+  z-index: 1;
+}
+
+#information:hover {
+  color: blue;
+  background-color: lightgray;
+  z-index: 1;
+}
+
+#information:hover + .information_hide {
+  display: block;
+  position: fixed;
+  bottom: 5vh;
+  right: 50px;
+  margin-top: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+  color: blue;
+  cursor: pointer;
+  font-size: 14px;
+  height: 70%;
+  width: 60%;
+  z-index: 1;
+}
+
+.information_hide {
+  background-color: white;
+  padding: 20px;
+  display: none;
+  z-index: 1;
+}
+
+.information_hide_header {
+  font-size: 20px;
+  z-index: 1;
+}
+
+.sketches_everything {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  height: auto;
+  grid-gap: 4px;
+  margin-top: 70px;
+}
+
+.sketches_container {
+  margin-top: 1px;
+}
+
+.sketches_image {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.footer {
+  background: blue;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding-left: 2px;
+  padding-top: 30px;
+}
+
+.linkedin {
+  text-decoration: underline;
+  color: white;
+}
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 2%;
+  right: 9px;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 3px 3px 10px #888888;
+  border: none;
+  border-radius: 2px;
+  color: blue;
+  cursor: pointer;
+  font-size: 14px;
+  height: 3vh;
+  width: 30px;
+  padding-top: 4px;
+}
+
+#scrollToTopBtn:hover {
+  color: blue;
+  background-color: lightgrey;
+}
